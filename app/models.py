@@ -1,5 +1,6 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 
 class User(db.Model):
@@ -38,5 +39,7 @@ class Blog(db.Model):
                 "id": self.author.id,
                 "username": self.author.username,
             },
-            "created_at": self.created_at.isoformat(),
+            "created_at": datetime.fromisoformat(self.created_at.isoformat()).strftime(
+                "%d %b %Y at %H:%M:%S"
+            ),
         }
