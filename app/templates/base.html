@@ -40,15 +40,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for("blogs.get_blogs")}}">Home</a>
                         </li>
+                        {% if session.get("user_id") %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for("blogs.create_blog") }}">New Post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Login</a>
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                         </li>
+                        {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="">Logout</a>
+                            <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

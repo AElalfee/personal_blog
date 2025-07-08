@@ -15,6 +15,7 @@ block content %}
     <a href="{{ url_for('blogs.get_blogs') }}" class="btn btn-secondary"
         >Back to all blogs</a
     >
+    {% if session.get("user_id")%}
     <a
         href="{{ url_for('blogs.update_blog', blog_id=blog.id) }}"
         class="btn btn-warning"
@@ -29,5 +30,6 @@ block content %}
     >
         <button type="submit" class="btn btn-danger">Delete</button>
     </form>
+    {% endif %}
 </div>
 {% endblock %}
