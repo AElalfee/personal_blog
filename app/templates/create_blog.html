@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block title %}Create New Blog{% endblock %} {%
+block content %}
+<div class="container mt-4">
+    <h2>Create New Blog Post</h2>
+
+    <form method="POST" action="{{ url_for('blogs.create_blog') }}">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                placeholder="Enter blog title"
+                required
+            />
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea
+                class="form-control"
+                id="content"
+                name="content"
+                rows="8"
+                placeholder="Write your blog content here..."
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Blog</button>
+    </form>
+</div>
+{% endblock %}
