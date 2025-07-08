@@ -11,8 +11,8 @@ content %}
     >
         <h5 class="mb-1">{{ blog.title }}</h5>
         <small
-            >By {{ blog.author_name if blog.author_name else 'Unknown Author'
-            }}</small
+            >By {{ blog.author.username if blog.author.username else 'Unknown
+            Author' }}</small
         >
         <p class="mb-1 text-truncate">{{ blog.content }}</p>
     </a>

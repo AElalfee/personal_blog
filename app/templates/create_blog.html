@@ -4,31 +4,18 @@ block content %}
     <h2>Create New Blog Post</h2>
 
     <form method="POST" action="{{ url_for('blogs.create_blog') }}">
+        {{ form.hidden_tag() }}
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input
-                type="text"
-                class="form-control"
-                id="title"
-                name="title"
-                placeholder="Enter blog title"
-                required
-            />
+            {{ form.title.label(class="form-label") }} {{
+            form.title(class="form-control") }}
         </div>
 
         <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea
-                class="form-control"
-                id="content"
-                name="content"
-                rows="8"
-                placeholder="Write your blog content here..."
-                required
-            ></textarea>
+            {{ form.content.label(class="form-label") }} {{
+            form.content(class="form-control", rows=6) }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Create Blog</button>
+        {{ form.submit(class="btn btn-primary") }}
     </form>
 </div>
 {% endblock %}

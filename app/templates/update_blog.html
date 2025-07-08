@@ -7,32 +7,18 @@ content %}
         method="POST"
         action="{{ url_for('blogs.update_blog', blog_id=blog.id) }}"
     >
+        {{ form.hidden_tag() }}
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input
-                type="text"
-                class="form-control"
-                id="title"
-                name="title"
-                value="{{ blog.title }}"
-                required
-            />
+            {{ form.title.label(class="form-label") }} {{
+            form.title(class="form-control") }}
         </div>
 
         <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea
-                class="form-control"
-                id="content"
-                name="content"
-                rows="6"
-                required
-            >
-{{ blog.content }}</textarea
-            >
+            {{ form.content.label(class="form-label") }} {{
+            form.content(class="form-control", rows=6) }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Blog</button>
+        {{ form.submit(class="btn btn-primary") }}
         <a
             href="{{ url_for('blogs.get_blog', blog_id=blog.id) }}"
             class="btn btn-secondary"
