@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Blog Home{% endblock %} {% block
+content %}
+<h1 class="mb-4">All Blog Posts</h1>
+
+{% if blogs %}
+<div class="list-group">
+    {% for blog in blogs %}
+    <a
+        href="{{ url_for('blogs.get_blog', blog_id=blog.id) }}"
+        class="list-group-item list-group-item-action"
+    >
+        <h5 class="mb-1">{{ blog.title }}</h5>
+        <small
+            >By {{ blog.author.username if blog.author.username else 'Unknown
+            Author' }}</small
+        >
+        <p class="mb-1 text-truncate">{{ blog.content }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<p>
+    No blog posts available.
+    <a href="{{ url_for('blogs.create_blog') }}">Create one now!</a>
+</p>
+{% endif %} {% endblock %}

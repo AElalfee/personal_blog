@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Edit Blog{% endblock %} {% block
+content %}
+<div class="container mt-4">
+    <h2>Edit Blog</h2>
+
+    <form
+        method="POST"
+        action="{{ url_for('blogs.update_blog', blog_id=blog.id) }}"
+    >
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.title.label(class="form-label") }} {{
+            form.title(class="form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.content.label(class="form-label") }} {{
+            form.content(class="form-control", rows=6) }}
+        </div>
+
+        {{ form.submit(class="btn btn-primary") }}
+        <a
+            href="{{ url_for('blogs.get_blog', blog_id=blog.id) }}"
+            class="btn btn-secondary"
+            >Cancel</a
+        >
+    </form>
+</div>
+{% endblock %}
