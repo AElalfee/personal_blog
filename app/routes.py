@@ -1,9 +1,10 @@
-from flask import Blueprint, request, flash
-from app import db
+from flask import Blueprint, flash, request, render_template
+
 from app.models import Blog, User
 
+from . import db
 
-routes_bp = Blueprint("", __name__)
+routes_bp = Blueprint("blogs", __name__)
 
 
 @routes_bp.route("/new", methods=["POST"])
@@ -28,13 +29,8 @@ def create_blog():
 @routes_bp.route("/", methods=["GET"])
 def get_blogs():
     blogs = Blog.query.all()
-
-    data = {
-        "blogs": [blog.to_dict() for blog in blogs],
-        "total": len(blogs),
-    }
-
-    return data
+    blogs = [blog.to_dict() for blog in blogs]
+    return render_template("index.html", blogs=blogs)
 
 
 @routes_bp.route("/<int:blog_id>", methods=["GET"])
