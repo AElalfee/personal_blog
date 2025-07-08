@@ -23,7 +23,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
             <div class="container">
-                <a class="navbar-brand" href="">AElalfee Blogs</a>
+                <a class="navbar-brand" href="{{ url_for('blogs.get_blogs') }}">AElalfee Blogs</a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -38,10 +38,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Home</a>
+                            <a class="nav-link" href="{{ url_for("blogs.get_blogs")}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">New Post</a>
+                            <a class="nav-link" href="{{ url_for("blogs.create_blog") }}">New Post</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Login</a>
