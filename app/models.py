@@ -28,3 +28,15 @@ class Blog(db.Model):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "content": self.content,
+            "author": {
+                "id": self.author.id,
+                "username": self.author.username,
+            },
+            "created_at": self.created_at.isoformat(),
+        }
