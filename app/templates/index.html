@@ -20,7 +20,8 @@ content %}
 </div>
 {% else %}
 <p>
-    No blog posts available.
+    No blog posts available. {% if session.get('user_id') %}
     <a href="{{ url_for('blogs.create_blog') }}">Create one now!</a>
+    {% endif %}
 </p>
 {% endif %} {% endblock %}
