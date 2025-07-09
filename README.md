@@ -2,6 +2,10 @@
 
 A simple personal blog platform built with Flask, providing functionality for users to **create**, **read**, **update**, and **delete** blog posts. The application supports user **authentication**, session management, and basic access control using Flask sessions.
 
+<a href="https://roadmap.sh/projects/personal-blog" target="_blank">
+<img src="blog.gif" alt="Preview">
+</a>
+
 ---
 
 ## 🚀 Features
